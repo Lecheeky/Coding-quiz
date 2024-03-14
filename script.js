@@ -177,3 +177,7 @@ function displayHighscores() {
 })
 }
 
+if (window.location.href.includes("highscores.html")) {
+    displayHighscores();
+}
+
