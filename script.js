@@ -52,3 +52,8 @@ var quiz = [
         ]
     }
 ];
+
+let currentQuestionIndex = 0
+let score = 0
+let timer = 0
+let timeLeft = 60
