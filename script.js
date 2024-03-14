@@ -124,4 +124,34 @@ function selectAnswer(selectedAnswer){
     }
 }
 
+function endQuiz() {
+    clearInterval(timer);
+
+    var hideElement = document.querySelector("#questions");
+    hideElement.classList.add("hide");
+
+    var viewScorePage = document.querySelector("#end-screen");
+    viewScorePage.classList.remove("hide");
+
+    var totalScore = document.querySelector("#final-score");
+    totalScore.textContent = score;
+
+    var submitButton = document.querySelector("#submit");
+    var initialsInput = document.querySelector("#initials"); 
+
+    submitButton.addEventListener("click", function () { 
+        var initials = initialsInput.value.trim();
+
+        if (initials !== "") {
+            var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+            highscores.push({ initials: initials, score: score });
+            localStorage.setItem("highscores", JSON.stringify(highscores));
+
+
+            window.location.href = "highscores.html";
+        } else {
+            alert("Please enter your initials");
+        }
+    });
+}
 
