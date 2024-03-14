@@ -65,3 +65,15 @@ function startQuiz() {
     startTimer()
     showQuestion();
 }
+
+function startTimer() {
+    timer = setInterval(function() {
+        document.querySelector("#time").textContent = timeLeft
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timer);
+            endQuiz()
+        }
+    }, 1000);
+}
