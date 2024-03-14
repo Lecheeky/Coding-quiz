@@ -53,6 +53,7 @@ var quiz = [
     }
 ];
 
+
 let currentQuestionIndex = 0
 let score = 0
 let timer = 0
@@ -124,6 +125,7 @@ function selectAnswer(selectedAnswer){
     }
 }
 
+
 function endQuiz() {
     clearInterval(timer);
 
@@ -155,6 +157,7 @@ function endQuiz() {
     });
 }
 
+
 function displayHighscores() {
     var highscoresList = document.querySelector("#highscores");
     var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
@@ -180,4 +183,3 @@ function displayHighscores() {
 if (window.location.href.includes("highscores.html")) {
     displayHighscores();
 }
-
