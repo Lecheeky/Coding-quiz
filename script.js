@@ -77,3 +77,24 @@ function startTimer() {
         }
     }, 1000);
 }
+
+function showQuestion(){
+
+    answerButton.innerHTML = "";
+
+    revealElement.classList.remove("hide")
+    var currentQuestion = quiz[currentQuestionIndex];
+    var questionNumber = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
+
+
+    currentQuestion.answers.forEach(function(answer) {
+        var button = document.createElement('button');
+        button.innerHTML = answer.text;
+        button.classList.add('button'); 
+        answerButton.appendChild(button);
+        button.addEventListener("click", function(){
+            selectAnswer(answer.text)
+        });
+    });
+};
