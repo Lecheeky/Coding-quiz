@@ -1,0 +1,6 @@
+var startScreen = document.querySelector(".start")
+var startQuizButton = document.querySelector("#start")
+var questionElement = document.querySelector("#question-title")
+var revealElement = document.querySelector(".hide")
+var answerButton = document.querySelector("#choices")
+var isCorrect = document.querySelector("#feedback")
