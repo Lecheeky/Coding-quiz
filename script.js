@@ -155,3 +155,25 @@ function endQuiz() {
     });
 }
 
+function displayHighscores() {
+    var highscoresList = document.querySelector("#highscores");
+    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    highscores.sort(function(a, b) {
+        return b.score - a.score; 
+    });
+
+    highscores.forEach(function(score) {
+        var li = document.createElement("li");
+        li.textContent = score.initials + ": " + score.score;
+        highscoresList.appendChild(li);
+    });
+
+    var submit = document.querySelector("#clear")
+    submit.addEventListener("click", function(){
+    highscoresList.remove()
+    localStorage.clear()
+    
+})
+}
+
