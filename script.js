@@ -98,3 +98,30 @@ function showQuestion(){
         });
     });
 };
+
+function selectAnswer(selectedAnswer){
+    var currentQuestion = quiz[currentQuestionIndex];
+    var displayCorrect = document.querySelector("#feedback")
+
+    if (currentQuestion.answers.find(answer => answer.correct === "true").text === selectedAnswer){
+        isCorrect.textContent = "Correct!";
+        displayCorrect.classList.remove("hide")
+        displayCorrect.textContent = "Correct!"
+        score++;
+    } else{
+        isCorrect.textContent = "Incorrect";
+        displayCorrect.classList.remove("hide")
+        displayCorrect.textContent = "Incorrect! -10 seconds"
+        timeLeft-=10;
+    }
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < quiz.length){
+        showQuestion();
+    } else{
+        endQuiz();
+    }
+}
+
+
