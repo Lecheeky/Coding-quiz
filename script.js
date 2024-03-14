@@ -57,3 +57,11 @@ let currentQuestionIndex = 0
 let score = 0
 let timer = 0
 let timeLeft = 60
+
+function startQuiz() {
+    let hideState = document.querySelector(".start")
+    hideState.classList.add('hide')
+
+    startTimer()
+    showQuestion();
+}
